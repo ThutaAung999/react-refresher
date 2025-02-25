@@ -1,7 +1,17 @@
+// CommonJS style
+/* 
+module.exports = {
+  plugins: [
+    require('@tailwindcss/postcss'),
+    require('autoprefixer'),
+  ],
+};
+ */
+
+  // postcss.config.js
 export default {
-    plugins: {
-      tailwindcss: {},
-      autoprefixer: {},
-    },
-  };
-  
+  plugins: {
+    '@tailwindcss/postcss': {},
+    autoprefixer: {},
+  },
+};

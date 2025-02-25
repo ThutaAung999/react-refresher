@@ -7,7 +7,11 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
+# Node Modules
+node_modules/
+package-lock.json
+
+
 dist
 dist-ssr
 *.local
@@ -22,3 +26,20 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+
+# Build Output
+dist/
+.next/
+out/
+
+# Environment Variables
+.env
+.env.local
+.env.production
+.env.development
+
+# Editor Configs & System Files
+.vscode/
+.idea/
+.DS_Store

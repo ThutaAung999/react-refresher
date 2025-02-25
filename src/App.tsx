@@ -1,19 +1,70 @@
+// import { useEffect, useState } from "react";
+import SearchComponent from "./components/SearchComponent";
+import { useQuery } from "@tanstack/react-query";
+import { Todo } from "./components/type";
+import { Loader, Center, Text } from "@mantine/core";
 
-import { useEffect, useState } from "react";
-import CustomText from "./components/CustomText";
 const App = () => {
-
-  const [text, setText] = useState("Hello");
+  /*  const [todos, setTodos] = useState<Todo[]>([]);
   
+  const fetchTodo = async () => {
+    try {
+      const response = await fetch(
+        "https://jsonplaceholder.typicode.com/todos",
+      );
+      const data = await response.json();
+      setTodos(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
-    console.log("Hello from useEffect");
-  }, [text]);
+    fetchTodo();
+  }, []);
+ */
+
+  const {
+    data: todos,
+    isLoading,
+    isError,
+    error,
+  } = useQuery<Todo[], Error>({
+    queryKey: ["todos"],
+    queryFn: async () => {
+      try {
+        const response = await fetch(
+          "https://jsonplaceholder.typicode.com/todos",
+        );
+        const data = await response.json();
+        return data;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  });
+
+  // Handle loading and error states
+  if (isLoading) {
+    return (
+      <Center style={{ height: "100vh" }}>
+        <Loader size="xl" variant="dots" />
+      </Center>
+    );
+  }
+
+  if (isError) {
+    return;
+    <Center style={{ height: "100vh" }}>
+      <Text c="red">Error: {error?.message}</Text>
+    </Center>;
+  }
 
   return (
-    <div className="mx-auto max-w-2xl p-4 flex flex-col items-center space-y-4">
-      <CustomText text={text} setText={setText} />
-    </div>
+    <section className="mx-auto w-1/2">
+      <SearchComponent todos={todos || []} />
+    </section>
   );
-}
+};
 
 export default App;

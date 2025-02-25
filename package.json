@@ -13,18 +13,23 @@
     "prettier:format": "prettier ./src --write"
   },
   "dependencies": {
+    "@mantine/core": "^7.17.0",
+    "@mantine/hooks": "^7.17.0",
     "@tailwindcss/vite": "^4.0.6",
+    "@tanstack/react-query": "^5.66.9",
+    "@tanstack/react-query-devtools": "^5.66.9",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "tailwindcss": "^4.0.6"
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
+    "@tailwindcss/postcss": "^4.0.7",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@typescript-eslint/eslint-plugin": "^8.24.0",
     "@typescript-eslint/parser": "^8.24.0",
     "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.20",
     "eslint": "^9.20.1",
     "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-prettier": "^5.2.3",
@@ -32,7 +37,9 @@
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.9",
     "globals": "^15.9.0",
+    "postcss": "^8.5.3",
     "prettier": "^3.5.1",
+    "tailwindcss": "^4.0.7",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1",
     "vite": "^5.4.1"
